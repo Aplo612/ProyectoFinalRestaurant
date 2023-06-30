@@ -1,0 +1,52 @@
+﻿@model ProyectoFinalRestaurant.Models.Plato
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <form asp-controller="Plato" asp-action="ModificarPlato" method="post">
+        <input type="hidden" asp-for="IdPlato" placeholder="Ingrese Codigo" />
+        <label for="Nombre">Nombre del plato:</label>
+        <input type="text" asp-for="Nombre" placeholder="Ingrese Nombre" />
+        <label for="Descripcion">Descripcion:</label>
+        <input type="text" asp-for="Descripcion" placeholder="Ingrese la descripción" />
+        <label for="Precio">Precio:</label>
+        <input type="number" asp-for="Precio" placeholder="Ingrese el precio" />
+        <label for="MenuDelDia">Menu del dia:</label>
+        <input type="text" asp-for="MenuDelDia" placeholder="Ingrese Nombre" />
+        <input type="submit" value="Modificar" />
+    </form>
+</body>
+</html>

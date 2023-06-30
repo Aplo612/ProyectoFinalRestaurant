@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProyectoFinalRestaurant.Models.Boletum
+
+<div class="container">
+    <h1>Boleta ID: @Model.IdBoleta</h1>
+    <h2>Fecha: @Model.Fecha</h2>
+    <h3>Total: @Model.Total</h3>
+
+    <h4>Detalles del Pedido:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre del Plato</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in Model.IdPedidoNavigation.DetallePedidos)
+            {
+                <tr>
+                    <td>@detalle.IdPlatoNavigation.Nombre</td>
+                    <td>@detalle.Cantidad</td>
+                    <td>@detalle.IdPlatoNavigation.Precio</td>
+                    <td>@(detalle.Cantidad * detalle.IdPlatoNavigation.Precio)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-controller="Pedidos" asp-action="Pagado" asp-route-id="@Model.IdPedido">Terminar</a>
+    </div>
+</div>

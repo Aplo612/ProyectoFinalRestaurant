@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ProyectoFinalRestaurant.Models.Boletum>
+
+<h1>Formulario</h1>
+
+<form asp-action="BoletasIntervalo">
+    <label for="menor">Menor:</label>
+    <input type="number" id="menor" name="menor" required><br>
+
+    <label for="mayor">Mayor:</label>
+    <input type="number" id="mayor" name="mayor" required><br>
+
+    <input type="submit" value="Filtrar">
+</form>
+
+@if (ViewBag.BoletasFiltradas != null)
+{
+    <h2>Boletas Filtradas:</h2>
+    <ul>
+        @foreach (var boleta in ViewBag.BoletasFiltradas)
+        {
+            <li>Id: @boleta.IdBoleta, Precio: @boleta.Total</li>
+        }
+    </ul>
+}
